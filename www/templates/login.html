@@ -1,0 +1,32 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Login</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+    <div class="alert alert-success" role="alert" ng-show="data.isLoggedIn && alert.shown ">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="alert_dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>Successfull Login with Facebook
+    </div>
+    <div class="alert alert-danger"  role="alert" ng-show="data.loginFailed && alert.shown">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="alert_dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>Failed to login with Facebook
+    </div>
+
+    <form>
+      <div class="list">
+        <label class="item" ng-hide="data.isLoggedIn">
+          <button class="button button-block button-positive" ng-click="authenticate('facebook')">Sign in with Facebook</button>
+        </label>
+        <label class="item" ng-show="data.isLoggedIn">
+          <button class="button button-block button-positive" ng-click="logout()">Logout</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
